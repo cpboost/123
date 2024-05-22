@@ -1,0 +1,6 @@
+torch==2.2.2
+timm==0.9.16
+diffusers==0.27.2
+numpy
+tqdm
+matplotlib
