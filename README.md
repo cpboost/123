@@ -9,3 +9,4 @@ python make_KTH_trainnpy.py     #将原始的数据保存为npy文件，用来�
 python make_KTH_testnpy.py      #将测试数据保存为npy文件,用来测试
 python make_KTH_mask1npy.py     #将重新生成的图像保存为npy文件,用来训练
 ```
+### 运行batch_inpainting_KTH.py 需要提前下载stable-diffusion-inpainting_KTH权重，和官方stable-diffusion-inpainting不同之处在于unet是微调过后的权重
