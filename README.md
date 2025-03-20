@@ -1,13 +1,19 @@
 # CaPaint
 paper code
-## inpantint生成数据步骤
-### 在make_inpaint_data文件夹下，是生成npy训练数据的代码，包括从原始KTH数据如何生成inpaint之后的KTH数据
+
+## Generate a mask by identifying environmental patches based on the attention map from self-supervised training.
+batch_mask.py
+
+## Steps for Generating Inpainting Data
+### Running batch_inpainting_KTH.py requires downloading the ​Stable Diffusion Inpainting_KTH weights in advance. Unlike the official Stable Diffusion Inpainting, the ​UNet weights here have been fully fine-tuned specifically for different datasets. 
+The fine-tuning process is implemented in the script fine_tune_unet.py.
+
+### Under the make_inpaint_data folder, this is the code for generating .npy training data, including how to generate inpainting KTH data from the original KTH data.
 ```python
 cd make_inpaint_data
-python batch_inpainting_KTH.py   #将掩码图像和原始图像经过图像修复模型重新生成改区域
-python make_KTH_trainnpy.py     #将原始的数据保存为npy文件，用来训练
-python make_KTH_testnpy.py      #将测试数据保存为npy文件,用来测试
-python make_KTH_mask1npy.py     #将重新生成的图像保存为npy文件,用来训练
+python batch_inpainting_KTH.py   # Use the mask images and original images to regenerate the masked regions through the inpainting model
+python make_KTH_trainnpy.py     # Save the original data as .npy files for training
+python make_KTH_testnpy.py      # Save the test data as .npy files for testing
+python make_KTH_mask1npy.py     # Save the regenerated images as .npy files for training
 ```
-### 运行batch_inpainting_KTH.py 需要提前下载stable-diffusion-inpainting_KTH权重，和官方stable-diffusion-inpainting不同之处在于unet是微调过后的权重
-1
+
