@@ -78,8 +78,7 @@ class Exp:
 
     def _build_model(self):
         args = self.args
-        # self.model = Nvwa_enchane_SimVP(tuple(args.in_shape), args.hid_S,
-        #                    args.hid_T, args.N_S, args.N_T).to(self.device)
+
         self.model = VisionTransformer(
             img_size=128,
             patch_size=16,
@@ -99,7 +98,7 @@ class Exp:
         self.vali_loader = self.test_loader if self.vali_loader is None else self.vali_loader
 
     def _select_optimizer(self):
-        #Adam
+     
         self.optimizer = torch.optim.Adam(
             self.model.parameters(), lr=self.args.lr)
         self.scheduler = torch.optim.lr_scheduler.OneCycleLR(
